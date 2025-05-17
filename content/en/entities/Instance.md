@@ -197,7 +197,7 @@ aliases: [
 
 ### `domain` {#domain}
 
-**Description:** The domain name of the instance.\
+**Description:** The WebFinger domain name of the instance.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
@@ -246,7 +246,7 @@ aliases: [
 
 ##### `usage[users][active_month]` {#active_month}
 
-**Description:** The number of active users in the past 4 weeks.\
+**Description:** The number of active users in the past 4 weeks. This is set to zero for servers with `configuration[limited_federation]`.\
 **Type:** Integer\
 **Version history:**\
 4.0.0 - added
@@ -349,7 +349,7 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
-### `configuration[vapid][public_key]` {#vapid_public_key}
+#### `configuration[vapid][public_key]` {#vapid_public_key}
 **Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
 **Type:** String\
 **Version history:**\
@@ -509,6 +509,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+#### `configuration[limited_federation]` {#limited-federation}
+
+**Description:** Whether federation is limited to explicitly allowed domains.\
+**Type:** Boolean\
+**Version history:**\
+4.4.0 - added
+
 ### `registrations`
 
 **Description:** Information about registering for this website.\
@@ -544,7 +551,7 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
-#### `registrations[reason_required]` #{registrations-reason_required}
+#### `registrations[reason_required]` {#registrations-reason_required}
 
 **Description:** Whether registrations require the user to provide a reason for joining. Only applicable when `registrations[approval_required]` is true.\
 **Type:** {{<nullable>}} Boolean\
